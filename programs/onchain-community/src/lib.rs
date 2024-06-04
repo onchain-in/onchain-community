@@ -1,15 +1,22 @@
 use anchor_lang::prelude::*;
 
+pub mod constant;
+pub mod states;
+pub mod error;
+pub mod instructions;
+use instructions::*;
+
 declare_id!("wNSuywSzp36Q3TgeaCJnBjie1pMpHPbxAzkkvvUKnaX");
 
 #[program]
 pub mod onchain_community {
-    use super::*;
+	use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        Ok(())
-    }
+	pub fn create_comment(
+		ctx: Context<CreateComment>,
+		url: String,
+		content: String,
+	) -> Result<()> {
+		create_comment::create_comment(ctx, url, content)
+	}
 }
-
-#[derive(Accounts)]
-pub struct Initialize {}
