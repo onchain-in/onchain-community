@@ -1055,6 +1055,7 @@ name = "onchain-community"
 version = "0.1.0"
 dependencies = [
  "anchor-lang",
+ "borsh 0.9.3",
 ]
 
 [[package]]

@@ -36,9 +36,9 @@ pub fn create_comment(
 	comment.vote = 0;
 
 	let url_bytes = url.as_bytes();
-	let url_len = url_bytes.len().min(64);
+	let url_len = url_bytes.len().min(128);
 	comment.url[..url_len].copy_from_slice(&url_bytes[..url_len]);
-	if url_len < 256 {
+	if url_len < 128 {
 		comment.url[url_len..].fill(0);
 	}
 

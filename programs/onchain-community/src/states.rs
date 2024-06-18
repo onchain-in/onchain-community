@@ -4,7 +4,7 @@ use anchor_lang::prelude::*;
 pub struct CommentAccount {
   pub authority: Pubkey,
   pub vote: i8,
-  pub url: [u8; 64],
+  pub url: [u8; 128],
   pub content: [u8; 512],
 }
 

@@ -16,16 +16,18 @@ describe("onchain-community", () => {
 
   it("get data", async () => {
     const comment = await program.account.commentAccount.all();
-    const url = decodeUTF8Array(comment[0].account.url)
-    const content = decodeUTF8Array(comment[0].account.content)
-    console.log(url);
+    for (const item of comment) {
+      const url = decodeUTF8Array(item.account.url);
+      console.log("URL:", url);
+      console.log(item.account.authority.toBase58())
+    }
   })
 
   // it("Create commment", async () => {
   //   try {
   //     const tx = await program.methods
   //     .createComment(
-  //       "n.news.naver.com/mnews/article/008/0005049365",
+  //       "edition.cnn.com/2024/06/17/politics/us-alarm-china-north-korea-russia",
   //       "Can we get more information on this? It's quite intriguing."
   //     ).accounts({
   //       comment: comment1Keypair.publicKey,
